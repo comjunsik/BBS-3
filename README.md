@@ -25,27 +25,11 @@ public class UserDAO {
 		}
 	}
 	
-	public int login(String userID, String userPassword) {
-		String SQL = "SELECT userPassword FROM USER WHERE userID = ?";
-		try {
-			pstmt = conn.prepareStatement(SQL);
-			pstmt.setString(1, userID);
-			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				if(rs.getString(1).equals(userPassword)) {
-					return 1; //로그인 성공
-				}
-				else
-					return 0; //비밀번호 불일치
-				
-			}
-			return -1; //아이디 없음
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-		return -2; //데이터베이스 오류
-	}
-
-}
+	
 ```
+Connection 이란 데이터베이스에 접근 가능한 객체<br>
+PreparedStatement 는 한번 사용한 SQL문이 저장이 된다.<br>
+ResultSet : execteQuery로 명령하면 ResultSet이라는 객체를 돌려준다/ execteQuery("Select * from tableName"); 이라고 보냈다면<br>
+            tableName 라는 테이블에서 값을 가져올겁니다. 이 가져온 것이 ResultSet임.
+
+
