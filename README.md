@@ -65,3 +65,11 @@ public int login(String userID, String userPassword) {
 		return -2; //데이터베이스 오류
 	}
 ```
+String 변수 SQL을 통해 SELECT userPassword FROM USER WHERE userID = ? 문장으로 USER 테이블에서 userPassword를 가져 오도록 한다.<br>
+**pstmt = conn.prepareStatement(SQL);** 문장의 prepareStatement를 통해 정해진 문장을 Connection conn으로 데이터베이스에 삽입<br>
+**pstmt.setString(1, userID);** SELECT userPassword FROM USER WHERE userID = **?** 에서 ? 에다 들아갈 문잘을 set 해준다. 매개변수로 넘어온<br> userID를 ?에 넣어 줌으로써 userID로 데이터베이스 접근<br>
+**rs = pstmt.executeQuery();** ResultSet rs에 받은 결과를 저장<br>
+**executeQuery()** 함수는 1.리턴 값으로 ResultSet 객체의 값을 반환합니다. <br>
+			 2. SELECT 구문을 수행할 때 사용되는 함수입니다.<br>
+
+
