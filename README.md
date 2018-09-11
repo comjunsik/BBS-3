@@ -42,4 +42,26 @@ DriverManager.getConnection() 를 통해서 DB에 연결 해준다. 파라미터
 tableName 라는 테이블에서 값을 가져올겁니다. 이 가져온 것이 ResultSet임.<br>
 ResultSet 주요 상수, 메서드 : http://noritersand.tistory.com/96 <br>
 
-
+```
+public int login(String userID, String userPassword) {
+		String SQL = "SELECT userPassword FROM USER WHERE userID = ?";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, userID);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				if(rs.getString(1).equals(userPassword)) {
+					return 1; //로그인 성공
+				}
+				else
+					return 0; //비밀번호 불일치
+				
+			}
+			return -1; //아이디 없음
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return -2; //데이터베이스 오류
+	}
+```
