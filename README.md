@@ -95,8 +95,8 @@ String 변수 SQL을 통해 SELECT userPassword FROM USER WHERE userID = ? 문�
 <br>
 자바 빈(JavaBean)은 데이터를 표현하는 것을 목적으로 하는 자바 클래스다. 콤포넌트와 비슷한 의미로 사용되기도 한다. <br>
 <br>
-**jsp:useBean id="user" class="user.User" scope="page" **
- +useBean 액션 태그<br>
+**jsp:useBean id="user" class="user.User" scope="page" **<br>
+ useBean 액션 태그<br>
             >>: 사용할 객체를 지정하는 작업 class 속성에 명시한 클래스를 id로 지정한 이름으로 사용하겠다는 의미
             >>>scope는 해당 객체의 유효범위를 지정함 => page, request, application 등..
 
