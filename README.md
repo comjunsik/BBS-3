@@ -86,9 +86,9 @@ String 변수 SQL을 통해 SELECT userPassword FROM USER WHERE userID = ? 문�
 <jsp:setProperty name="user" property="userID" />
 <jsp:setProperty name="user" property="userPassword" />
 ```
-<%@ page import="user.UserDAO" %> 우리가 만든 class 사용을 위해 user패키지의 UserDAO를 import 해준다.<br>
-<%@ page import="java.io.PrintWriter" %> JavaScript 문장을 사용하기 위해 import해주는 것<br>
-<% request.setCharacterEncoding("UtF-8"); %> 건너오는 데이터를 UTF-8로 받기 위해.<br>
+**@ page import="user.UserDAO"**  우리가 만든 class 사용을 위해 user패키지의 UserDAO를 import 해준다.<br>
+**@page import="java.io.PrintWriter"**  JavaScript 문장을 사용하기 위해 import해주는 것<br>
+**request.setCharacterEncoding("UtF-8");**  건너오는 데이터를 UTF-8로 받기 위해.<br>
 
 <h3>자바 빈즈란?</h3>
  자바 빈즈는 JSP 페이지의 로직 부분을 분리해서 코드를 재사용함으로 프로그램의 효율을 높이기 위해 사용한다. 프로그램의 모듈화는 코드를 재사용하므로 프로그램의 작성기간이 단축되고, 이미 사용되던 코드이므로 안정성이 보장되며 유지/보수가 쉽다. MVC 패턴에서 자바 빈은 프로그램 로직을 소유할 수 있고 DB와 연동해서 작업을 처리한다.
@@ -97,8 +97,8 @@ String 변수 SQL을 통해 SELECT userPassword FROM USER WHERE userID = ? 문�
 <br>
 **jsp:useBean id="user" class="user.User" scope="page" **<br>
  useBean 액션 태그<br>
-            : 사용할 객체를 지정하는 작업 class 속성에 명시한 클래스를 id로 지정한 이름으로 사용하겠다는 의미<br>
-            scope는 해당 객체의 유효범위를 지정함 => page, request, application 등..<br>
+            >: 사용할 객체를 지정하는 작업 class 속성에 명시한 클래스를 id로 지정한 이름으로 사용하겠다는 의미<br>
+            >>scope는 해당 객체의 유효범위를 지정함 => page, request, application 등..<br>
 	    scope="page"하면 현재 페이지에서만 적용하겠다.<br>
 	    
 
