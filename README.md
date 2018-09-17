@@ -74,5 +74,16 @@ String 변수 SQL을 통해 SELECT userPassword FROM USER WHERE userID = ? 문�
 **if(rs.getString(1).equals(userPassword))** re.getString(1)을 함으로써 데이터베이스에서 받아온 값을 String으로 변환하여 뽑아 낸다.<br>
 이때 getString(1) 1을 해준 이유는 데이터 베이스 두번째 column이 userPassword이기 때문이며 1대신 "userPassword"를 넣어도 무관하다.<br>
 
+# loginAction.jsp
 
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="user.UserDAO" %>
+<%@ page import="java.io.PrintWriter" %>
+<% request.setCharacterEncoding("UtF-8"); %>
+<jsp:useBean id="user" class="user.User" scope="page" />
+<jsp:setProperty name="user" property="userID" />
+<jsp:setProperty name="user" property="userPassword" />
+```
 
