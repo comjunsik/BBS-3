@@ -161,16 +161,16 @@ int result = userDAO.login(user.getUserID(),user.getUserPassword());**<br>
 UserDAO의 인스턴스 생성 후 userDAO.java의 login()함수 호출, 파라미터로는 **자바 빈즈의 id인 user로 User.java의 함수들을 불러와 사용**
 <br>
 **jsp로 경고창 띄우기**
-PrintWriter script = response.getWriter();
-script.println("<script>");           스크립트 문장 유동적으로 사용
-script.println("location.href = 'main.jsp'");    main.jsp로 이동
+>PrintWriter script = response.getWriter();<br>
+script.println("<script>");           스크립트 문장<br> 유동적으로 사용<br>
+script.println("location.href = 'main.jsp'");    main.<br>jsp로 이동<br>
 script.println("</script>");<br>
 
-PrintWriter script = response.getWriter();
-		script.println("<script>");
-		script.println("alert('없는 아이디 입니다.')");  경고창 띄우기
-		script.println("history.back()"); **history.back()** 이전페이지로 돌려 
-		script.println("</script>");
+PrintWriter script = response.getWriter();<br>
+script.println("<script>");<br>
+script.println("alert('없는 아이디 입니다.')");  경고창 띄우기<br>
+script.println("history.back()"); **history.back()** 이전페이지로 돌려 보내기<br> 
+script.println("</script>");<br>
 
 
 
