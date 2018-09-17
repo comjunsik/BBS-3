@@ -110,6 +110,53 @@ setProperty 액션 태그
 >name 속성은 위에서 지정한 id이며
 >property는 필드 변수 명
 >value는 값을 의미한다.<br>
-login.jsp 폼에 있는 userID를 UserDAO를 거쳐 받아온다.
+login.jsp 폼에 있는 userID를 User.java를 거쳐 받아온다.<br>
+```jsp
+<%
+	String userID= null;
+	if (session.getAttribute("userID") != null) {
+		userID = (String) session.getAttribute("userID");
+	}
+	if(userID != null) {
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('이미 로그인되었습니다.')");
+		script.println("location.href = 'main.jsp'");
+		script.println("</script>");
+	}
+	UserDAO userDAO = new UserDAO();
+	int result = userDAO.login(user.getUserID(),user.getUserPassword());
+	if (result == 1){
+		session.setAttribute("userID",user.getUserID());
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("location.href = 'main.jsp'");
+		script.println("</script>");
+	}
+	else if (result ==0) {
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('비번이 틀립니다.')");
+		script.println("history.back()");
+		script.println("</script>");
+	}
+	else if (result == -1) {
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('없는 아이디 입니다.')");
+		script.println("history.back()");
+		script.println("</script>");
+	}
+	else if (result == -2) {
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('데이터 베이스 오류.')");
+		script.println("history.back()");
+		script.println("</script>");
+	}
+	%>
+```
+UserDAO userDAO = new UserDAO();<br>
+	<bt>int result = userDAO.login(user.getUserID(),user.getUserPassword());
 
 
