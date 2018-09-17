@@ -97,6 +97,6 @@ String 변수 SQL을 통해 SELECT userPassword FROM USER WHERE userID = ? 문�
 <br>
 **jsp:useBean id="user" class="user.User" scope="page" **
  +useBean 액션 태그<br>
-            +: 사용할 객체를 지정하는 작업 class 속성에 명시한 클래스를 id로 지정한 이름으로 사용하겠다는 의미
-            +scope는 해당 객체의 유효범위를 지정함 => page, request, application 등..
+            >>: 사용할 객체를 지정하는 작업 class 속성에 명시한 클래스를 id로 지정한 이름으로 사용하겠다는 의미
+            >>>scope는 해당 객체의 유효범위를 지정함 => page, request, application 등..
 
