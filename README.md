@@ -73,7 +73,7 @@ String 변수 SQL을 통해 SELECT userPassword FROM USER WHERE userID = ? 문�
 			 2. SELECT 구문을 수행할 때 사용되는 함수입니다.<br>
 **if(rs.getString(1).equals(userPassword))** re.getString(1)을 함으로써 데이터베이스에서 받아온 값을 String으로 변환하여 뽑아 낸다.<br>
 이때 getString(1) 1을 해준 이유는 데이터 베이스 두번째 column이 userPassword이기 때문이며 1대신 "userPassword"를 넣어도 무관하다.<br>
-
+---
 # loginAction.jsp
 
 ```jsp
@@ -96,7 +96,7 @@ String 변수 SQL을 통해 SELECT userPassword FROM USER WHERE userID = ? 문�
  자바 빈즈는 JSP 페이지의 로직 부분을 분리해서 코드를 재사용함으로 프로그램의 효율을 높이기 위해 사용한다. 프로그램의 모듈화는 코드를 재사용하므로 프로그램의 작성기간이 단축되고, 이미 사용되던 코드이므로 안정성이 보장되며 유지/보수가 쉽다. MVC 패턴에서 자바 빈은 프로그램 로직을 소유할 수 있고 DB와 연동해서 작업을 처리한다.
 <br>
 자바 빈(JavaBean)은 데이터를 표현하는 것을 목적으로 하는 자바 클래스다. 콤포넌트와 비슷한 의미로 사용되기도 한다. <br>
-<br>
+**주의점:** 빈즈와 사용되는 폼에 있는 변수명은 같아야한다.<br>
 
 **jsp:useBean id="user" class="user.User" scope="page"**<br>
  useBean 액션 태그<br>
@@ -109,7 +109,7 @@ setProperty 액션 태그
 >: useBean에서 지정한 id에 해당하는 객체의 name 필드에 hyr을 대입함
 >name 속성은 위에서 지정한 id이며
 >property는 필드 변수 명
->value는 값을 의미한다.
-
+>value는 값을 의미한다.<br>
+login.jsp 폼에 있는 userID를 UserDAO를 거쳐 받아온다.
 
 
